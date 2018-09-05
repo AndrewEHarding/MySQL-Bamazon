@@ -1,0 +1,27 @@
+{
+  "name": "mysql-bamazon",
+  "version": "1.0.0",
+  "description": "MySQL Web Store Application",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewEHarding/MySQL-Bamazon.git"
+  },
+  "keywords": [
+    "MySQL",
+    "Bamazon"
+  ],
+  "author": "Andrew Harding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewEHarding/MySQL-Bamazon/issues"
+  },
+  "homepage": "https://github.com/AndrewEHarding/MySQL-Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^6.2.0",
+    "mysql": "^2.16.0"
+  }
+}
