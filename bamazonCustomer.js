@@ -5,27 +5,42 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host: "localhost",
-
   port: 3306,
-
   user: "root",
-
   password: "SuperSecretPasswordHere",
   database: "bamazon"
 });
 
+function purchaseInquire() {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "sku",
+      message: "What is the SKU number of the item you would like to purchase?",
+    },
+    {
+
+    }
+  ]).then(function (input) {
+
+  })
+
+}
+
 function fullInventory() {
   cLog(`WELCOME TO BAMAZON, VALUED* CUSTOMER!`);
-  connection.query('SELECT * FROM products', function(err, data) {
+  connection.query('SELECT * FROM products', function (err, data) {
     if (err) throw err;
 
     cLog(`==========CURRENT INVENTORY==========`);
-    for (var i = 0; i < data.length; i++){
-      cLog(`SKU#: ${data[i].item_id} || Product: ${data[i].product_name} || Department: ${data[i].department_name} || Price: $${data[i].price} || In Stock: ${data[i].stock_quantity}`)
-    }
+    data.forEach(element => {
+      cLog(`SKU#: ${element.item_id} || Product: ${element.product_name} || Price: $${element.price}`);
+    });
     cLog(`==========^ ^ ^ ^ ^ ^ ^ ^============`);
 
   })
+
+  purchaseInquire();
 
 }
 
