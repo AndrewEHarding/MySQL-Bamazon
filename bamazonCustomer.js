@@ -24,7 +24,18 @@ function startBamazon() {
       }
     }
 
-    function purchaseInquire(x) {
+    function displayInventory() {
+      cLog(`==========CURRENT INVENTORY==========`);
+      cLog(`  `);
+      data.forEach(element => {
+        cLog(`SKU#: ${element.item_id} || Product: ${element.product_name} || Price: $${element.price}`);
+      });
+      cLog(`  `);
+      cLog(`==========^ ^ ^ ^ ^ ^ ^ ^============`);
+      purchaseInquire();
+    }
+
+    function purchaseInquire() {
       inquirer.prompt([
         {
           type: "input",
@@ -43,14 +54,8 @@ function startBamazon() {
         cLog(input.quantity);
       })
     }
-
-    cLog(`==========CURRENT INVENTORY==========`);
-    data.forEach(element => {
-      cLog(`SKU#: ${element.item_id} || Product: ${element.product_name} || Price: $${element.price}`);
-    });
-    cLog(`==========^ ^ ^ ^ ^ ^ ^ ^============`);
-
-    purchaseInquire();
+    
+    displayInventory();
 
   })
 }
